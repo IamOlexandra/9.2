@@ -6,6 +6,9 @@ export const AppStyled = styled.div`
     height: 100vh;
     background-color: #e0ded0;
     padding: 20px;
+    @media (max-width: 700px) {
+        flex-direction: column;
+    }
 `;
     export const StickerListStyled = styled.ul`
         display: flex;
@@ -18,6 +21,8 @@ export const AppStyled = styled.div`
         align-content: start;
         padding: 10px;
         overflow: auto;
+        scrollbar-color: #ddd transparent;
+        scrollbar-width: thin;
     `;
         export const StickerStyled = styled.li`
             width: 100px;
@@ -34,19 +39,25 @@ export const AppStyled = styled.div`
             }
         `;
     export const ChoiceStyled = styled.div`
-        width: 600px;
+        min-width: 400px;
         background-color: #f0f0f0;
         border-radius: 20px;
-        padding: 10px;
+        padding: 20px;
+        @media (max-width: 700px) {
+            width: fit-content;
+            min-width: unset;
+            max-height: 400px;
+            margin: 0 auto;
+        }
     `;
         export const ChoiceImgStyled = styled.img`
             width: 100%;
             border-radius: 20px;
-            padding-bottom: 10px;
+            padding-bottom: 20px;
         `;
         export const ChoiceLabelStyled = styled.p`
             font-size: 20px;
             font-family: sans-serif;
             font-weight: 500;
-            text-aling: center;
+            text-align: center;
         `;
