@@ -9,13 +9,13 @@ export const AppStyled = styled.div`
 `;
     export const StickerListStyled = styled.ul`
         display: flex;
-        align-items: flex-start;
         flex-wrap: wrap;
         gap: 10px;
         width: 100%;
         height: 100%;
         background-color: #f0f0f0;
         border-radius: 20px;
+        align-content: start;
         padding: 10px;
         overflow: auto;
     `;
