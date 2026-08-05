@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import {Component} from "react";
+import Choice from "./components/Choice";
+import stickersData from "./stickers.json";
+import {AppStyled, StickerListStyled, StickerStyled} from "./components/styled";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  state = {
+    currentSticker: stickersData[0],
+  }
+  changeSticker = stickerIndex => {
+    this.setState({currentSticker: stickersData[stickerIndex]});
+  }
+  render() {
+    return (
+      <AppStyled>
+        <StickerListStyled>
+          {stickersData.map((stickerData, stickerIndex) => (
+            <StickerStyled key={stickerIndex} onClick={() => this.changeSticker(stickerIndex)} style={{backgroundImage: "url(" + stickerData.img + ")"}}/>
+          ))}
+        </StickerListStyled>
+        <Choice sticker={this.state.currentSticker}/>
+      </AppStyled>
+    );
+  }
 }
-
-export default App;
